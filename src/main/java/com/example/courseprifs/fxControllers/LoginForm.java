@@ -1,0 +1,53 @@
+package com.example.courseprifs.fxControllers;
+
+import com.example.courseprifs.HelloApplication;
+import com.example.courseprifs.utils.FxUtils;
+import com.example.courseprifs.hibernateControl.CustomHibernate;
+import com.example.courseprifs.model.User;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+
+public class LoginForm {
+    @FXML TextField loginField;
+    @FXML PasswordField passwordField;
+
+    public void validateAndLoad() throws IOException {
+        User user = CustomHibernate.getUserByCredentials(loginField.getText(), passwordField.getText());
+        if (user != null) {
+            showMainForm(user);
+        } else {
+            FxUtils.generateAlert(Alert.AlertType.WARNING, "Warning", "Something went wrong during login", "No such user or wrong credentials");
+        }
+    }
+
+    public void registerNewUser() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("user-form.fxml"));
+        Parent parent = fxmlLoader.load();
+        showStage(parent);
+    }
+
+    private void showMainForm(User data) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("main-form.fxml"));
+        Parent parent = fxmlLoader.load();
+
+        MainForm mainForm = fxmlLoader.getController();
+        mainForm.setData(data);
+        showStage(parent);
+    }
+
+    private void showStage(Parent parent) {
+        Scene scene = new Scene(parent);
+        Stage stage = (Stage) loginField.getScene().getWindow();
+        stage.setTitle("Hello!");
+        stage.setScene(scene);
+        stage.show();
+    }
+}

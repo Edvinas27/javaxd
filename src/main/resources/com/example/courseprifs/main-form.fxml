@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="599.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.courseprifs.fxControllers.MainForm">
+    <TabPane fx:id="tabsPane" prefHeight="401.0" prefWidth="601.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <Tab fx:id="userTab" onSelectionChanged="#reloadTableData" text="User management">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="369.0" prefWidth="616.0">
+                <TableView fx:id="userTable" layoutX="-2.0" layoutY="4.0" prefHeight="180.0" prefWidth="602.0">
+                    <columns>
+                        <TableColumn fx:id="idCol" prefWidth="60.0" text="ID" />
+                        <TableColumn fx:id="userTypeCol" prefWidth="90.0" text="USER_TYPE" />
+                        <TableColumn fx:id="loginCol" prefWidth="75.0" text="LOGIN" />
+                        <TableColumn fx:id="passwordCol" prefWidth="75.0" text="PASSWORD" />
+                        <TableColumn fx:id="nameCol" prefWidth="75.0" text="NAME" />
+                        <TableColumn fx:id="surnameCol" prefWidth="64.0" text="SURNAME" />
+                        <TableColumn fx:id="addressCol" prefWidth="86.0" text="ADDRESS" />
+                        <TableColumn fx:id="dummyCol" prefWidth="75.0" text="DUMMY" />
+                    </columns>
+                </TableView>
+            <Button fx:id="createUserButton" layoutX="156.0" layoutY="228.0" mnemonicParsing="false" onAction="#addUser" text="Create" />
+            <Button fx:id="updateUserButton" layoutX="272.0" layoutY="229.0" mnemonicParsing="false" onAction="#updateUser" text="Update" />
+            <Button fx:id="deleteUserButton" layoutX="402.0" layoutY="230.0" mnemonicParsing="false" onAction="#deleteUser" text="Delete" />
+            </AnchorPane>
+        </Tab>
+        <Tab fx:id="managementTab" text="Orders management">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <TableView fx:id="orderTableView" layoutX="14.0" layoutY="14.0" prefHeight="341.0" prefWidth="207.0">
+                    <columns>
+                        <TableColumn fx:id="ordersNameCol" prefWidth="63.0" text="Name" />
+                        <TableColumn fx:id="ordersPriceCol" prefWidth="67.0" text="Price" />
+                        <TableColumn fx:id="ordersStatusCol" prefWidth="75.0" text="Status" />
+                    </columns>
+                </TableView>
+                <ComboBox fx:id="ordersComboBox" layoutX="237.0" layoutY="14.0" prefHeight="26.0" prefWidth="104.0" promptText="Order" />
+                <ListView fx:id="ordersListView" layoutX="233.0" layoutY="100.0" prefHeight="255.0" prefWidth="246.0" />
+            <ComboBox fx:id="ordersClientsCombo" layoutX="356.0" layoutY="52.0" prefHeight="26.0" prefWidth="99.0" promptText="Clients" />
+            <TextField layoutX="356.0" layoutY="14.0" prefHeight="26.0" prefWidth="98.0" text="Title" />
+            <TextField layoutX="460.0" layoutY="14.0" prefHeight="26.0" prefWidth="98.0" text="Price" />
+            <Button fx:id="createOrderButton" layoutX="503.0" layoutY="53.0" mnemonicParsing="false" text="Create" />
+            </AnchorPane>
+        </Tab>
+        <Tab fx:id="foodTab" onSelectionChanged="#reloadTableData" text="Food management">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <TableView fx:id="cuisineListTable" layoutX="20.0" layoutY="21.0" prefHeight="332.0" prefWidth="316.0">
+                    <columns>
+                        <TableColumn fx:id="foodNameCol" prefWidth="75.0" text="Name" />
+                        <TableColumn fx:id="foodIngredientCol" prefWidth="75.0" text="Ingredients" />
+                        <TableColumn fx:id="foodPriceCol" prefWidth="75.0" text="Price" />
+                  <TableColumn fx:id="foodSpicyCol" prefWidth="42.0" text="Spicy" />
+                  <TableColumn fx:id="foodVeganCol" prefWidth="48.0" text="Vegan" />
+                    </columns>
+                </TableView>
+            <TextField fx:id="addCuisineName" layoutX="342.0" layoutY="21.0" promptText="Name" />
+            <TextField fx:id="addCuisineIngredients" layoutX="342.0" layoutY="58.0" promptText="Ingredients" />
+            <TextField fx:id="addCuisinePrice" layoutX="342.0" layoutY="99.0" promptText="Price" />
+            <Button fx:id="addCuisineButton" layoutX="342.0" layoutY="148.0" mnemonicParsing="false" text="Add" />
+            <RadioButton fx:id="spicyRadioFood" layoutX="517.0" layoutY="25.0" mnemonicParsing="false" text="Spicy" />
+            <RadioButton fx:id="veganRadioFood" layoutX="514.0" layoutY="62.0" mnemonicParsing="false" text="Vegan" />
+            <Button fx:id="deleteCuisineButton" layoutX="403.0" layoutY="149.0" mnemonicParsing="false" onAction="#deleteCuisine" text="Delete" />
+            </AnchorPane>
+        </Tab>
+    </TabPane>
+</AnchorPane>
