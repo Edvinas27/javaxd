@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.courseprifs.fxControllers.OrderForm">
+    <Label layoutX="250.0" layoutY="14.0" text="Create Order" />
+    <Label layoutX="30.0" layoutY="50.0" text="Order Name:" />
+    <TextField fx:id="orderNameField" layoutX="120.0" layoutY="46.0" prefHeight="26.0" prefWidth="200.0" promptText="Order name" />
+    <Label layoutX="30.0" layoutY="90.0" text="Buyer:" />
+    <ComboBox fx:id="buyerComboBox" layoutX="120.0" layoutY="86.0" prefHeight="26.0" prefWidth="200.0" promptText="Select buyer" />
+    <Label layoutX="30.0" layoutY="130.0" text="Restaurant:" />
+    <ComboBox fx:id="restaurantComboBox" layoutX="120.0" layoutY="126.0" onAction="#loadCuisines" prefHeight="26.0" prefWidth="200.0" promptText="Select restaurant" />
+    <Label layoutX="30.0" layoutY="170.0" text="Available Cuisines:" />
+    <ListView fx:id="availableCuisinesListView" layoutX="30.0" layoutY="195.0" prefHeight="200.0" prefWidth="250.0" />
+    <Button fx:id="addCuisineButton" layoutX="120.0" layoutY="405.0" mnemonicParsing="false" onAction="#addCuisineToOrder" text="Add -&gt;" />
+    <Label layoutX="320.0" layoutY="170.0" text="Selected Cuisines:" />
+    <ListView fx:id="selectedCuisinesListView" layoutX="320.0" layoutY="195.0" prefHeight="200.0" prefWidth="250.0" />
+    <Button fx:id="removeCuisineButton" layoutX="360.0" layoutY="405.0" mnemonicParsing="false" onAction="#removeCuisineFromOrder" text="&lt;- Remove" />
+    <Label layoutX="350.0" layoutY="50.0" text="Order Status:" />
+    <ComboBox fx:id="orderStatusComboBox" layoutX="440.0" layoutY="46.0" prefHeight="26.0" prefWidth="140.0" promptText="Status" />
+    <Label layoutX="350.0" layoutY="90.0" text="Total Price:" />
+    <TextField fx:id="totalPriceField" editable="false" layoutX="440.0" layoutY="86.0" prefHeight="26.0" prefWidth="140.0" promptText="0.0" />
+    <CheckBox fx:id="autoCalculateCheckBox" layoutX="440.0" layoutY="120.0" mnemonicParsing="false" selected="true" text="Auto-calculate price" />
+    <Button fx:id="createOrderButton" layoutX="200.0" layoutY="450.0" mnemonicParsing="false" onAction="#createOrder" prefHeight="30.0" prefWidth="100.0" text="Create Order" />
+    <Button fx:id="cancelButton" layoutX="320.0" layoutY="450.0" mnemonicParsing="false" onAction="#cancelOrder" prefHeight="30.0" prefWidth="100.0" text="Cancel" />
+</AnchorPane>
+

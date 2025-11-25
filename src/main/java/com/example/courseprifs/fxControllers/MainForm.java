@@ -193,8 +193,6 @@ public class MainForm implements Initializable {
             createCuisine();
         });
 
-        ordersClientsCombo.getItems().addAll(GenericHibernate.getAll(BasicUser.class));
-
         ordersComboBox.setOnAction(event -> {
             OrderStatus selectedStatus = ordersComboBox.getSelectionModel().getSelectedItem();
             List<FoodOrder> filteredOrders = CustomHibernate.getOrdersByStatus(selectedStatus);
@@ -377,5 +375,18 @@ public class MainForm implements Initializable {
         }
 
         FxUtils.generateAlert(Alert.AlertType.ERROR, "Error", "Cuisine not found.", "The selected cuisine could not be found.");
+    }
+
+    public void createOrder(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("order-form.fxml"));
+        Parent parent = fxmlLoader.load();
+
+        Stage stage = new Stage();
+        Scene scene = new Scene(parent);
+        stage.setScene(scene);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.showAndWait();
+
+        reloadTableData();
     }
 }

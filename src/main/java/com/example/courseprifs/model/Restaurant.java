@@ -22,4 +22,9 @@ public class Restaurant extends BasicUser {
     public Restaurant(String login, String password, String name, String surname, String phoneNumber, String address) {
         super(login, password, name, surname, phoneNumber, address);
     }
+
+    @Override
+    public String toString() {
+        return name + " (" + address + ")";
+    }
 }

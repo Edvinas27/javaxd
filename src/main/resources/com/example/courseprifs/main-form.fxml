@@ -43,10 +43,7 @@
                 </TableView>
                 <ComboBox fx:id="ordersComboBox" layoutX="237.0" layoutY="14.0" prefHeight="26.0" prefWidth="104.0" promptText="Order" />
                 <ListView fx:id="ordersListView" layoutX="233.0" layoutY="100.0" prefHeight="255.0" prefWidth="246.0" />
-            <ComboBox fx:id="ordersClientsCombo" layoutX="356.0" layoutY="52.0" prefHeight="26.0" prefWidth="99.0" promptText="Clients" />
-            <TextField layoutX="356.0" layoutY="14.0" prefHeight="26.0" prefWidth="98.0" text="Title" />
-            <TextField layoutX="460.0" layoutY="14.0" prefHeight="26.0" prefWidth="98.0" text="Price" />
-            <Button fx:id="createOrderButton" layoutX="503.0" layoutY="53.0" mnemonicParsing="false" text="Create" />
+            <Button fx:id="createOrderButton" layoutX="378.0" layoutY="14.0" mnemonicParsing="false" onAction="#createOrder" text="Create" />
             </AnchorPane>
         </Tab>
         <Tab fx:id="foodTab" onSelectionChanged="#reloadTableData" text="Food management">

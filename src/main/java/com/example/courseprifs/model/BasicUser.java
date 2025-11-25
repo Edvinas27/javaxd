@@ -30,4 +30,9 @@ public class BasicUser extends User{
         this.feedback = new ArrayList<>();
         this.myOrders = new ArrayList<>();
     }
+
+    @Override
+    public String toString() {
+        return name + " " + surname + " (" + login + ")";
+    }
 }
